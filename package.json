@@ -122,5 +122,149 @@
 		"vue2-filters": "0.3.0",
 		"vuetify": "1.1.4",
 		"vuex": "3.0.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "uglify": true
+          },
+          "modules": false
+        }
+      ],
+      "react"
+    ],
+    "plugins": [
+      [
+        "transform-imports",
+        {
+          "vuetify": {
+            "transform": "vuetify/es5/components/${member}",
+            "preventFullImport": false
+          },
+          "bcbsnc-platform": {
+            "transform": "bcbsnc-platform/src/components/${member}",
+            "preventFullImport": true
+          }
+        }
+      ],
+      "transform-es2015-shorthand-properties",
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-runtime"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": 8
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          "transform-class-properties",
+          "transform-object-rest-spread"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "semi-style": 1,
+      "semi": 2,
+      "no-console": 1,
+      "no-debugger": 1
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": true
+  },
+  "eslintIgnore": [
+    "/build/",
+    "/dist/",
+    "/*.js",
+    "/test/unit/coverage/"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "ie 11"
+  ],
+  "jest": {
+    "testURL": "http://localhost/",
+    "transformIgnorePatterns": [
+      "node_modules/(?!bcbsnc-platform)"
+    ],
+    "testMatch": [
+      "<rootDir>/(tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx))"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      "\\.(gql|graphql)$": "jest-transform-graphql",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": [
+      "jest-serializer-vue"
+    ],
+    "coverageDirectory": "<rootDir>/tests/unit/coverage",
+    "collectCoverageFrom": [
+      "src/**/*.{js,vue}",
+      "!src/modules/**",
+      "!src/registerServiceWorker.js",
+      "!src/components/ExampleHeading.js",
+      "!src/components/ExampleLinksList.vue",
+      "!src/main.js",
+      "!src/router/index.js",
+      "!**/node_modules/**"
+    ]
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint --no-ignore",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint --no-ignore",
+      "git add"
+    ]
   }
 }
