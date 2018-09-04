@@ -69,6 +69,15 @@
     "body-parser": "^1.18.2",
     "debug": "^3.1.0",
     "express": "4.16.0",
-    "license-reporter": "^1.2.0"
+    "license-reporter": "^1.2.0",
+    "apollo-cache-inmemory": "1.2.1",
+    "apollo-client": "2.3.1",
+    "apollo-link": "1.2.2",
+    "apollo-link-context": "1.0.8",
+    "apollo-link-http": "1.5.4",
+    "apollo-link-persisted-queries": "0.2.0",
+    "apollo-link-ws": "1.0.8",
+    "apollo-upload-client": "8.0.0",
+    "apollo-utilities": "1.0.12"
   }
 }
