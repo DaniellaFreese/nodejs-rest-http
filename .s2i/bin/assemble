@@ -48,7 +48,9 @@ else
 	echo "---> Installing dependencies"
 	if [ "$DEV_MODE" == true ]; then
 		echo "---> Using 'npm install'"
+		echo "testing that the script functions" 
 		npm install
+		
 	else
 		echo "---> Using 'npm install -s --only=production'"
 		npm install -s --only=production
