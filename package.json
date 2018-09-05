@@ -3,8 +3,13 @@
   "version": "2.0.0",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
+  },
   "scripts": {
-    "test": "tape test/*.js | tap-spec",
+    /* "test": "tape test/*.js | tap-spec", */
     "test:integration": "tape test/integration/*.js | tap-spec",
     "test:integration:undeploy": "nodeshift --strictSSL=false undeploy",
     "lint": "xo",
@@ -17,7 +22,18 @@
     "release": "standard-version -a",
     "openshift": "nodeshift --strictSSL=false --nodeVersion=10.x",
     "postinstall": "license-reporter report -s && license-reporter save -s --xml licenses.xml",
-    "start": "node ."
+    /* "start": "node ." */,
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "test": "vue-cli-service test:unit --coverage",
+    "updateSnapshots": "vue-cli-service test:unit --updateSnapshot",
+    "e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "start": "npm run serve",
+    "styleguide": "vue-styleguidist server",
+    "styleguide:build": "vue-styleguidist build",
+    "graphql-api": "vue-cli-service graphql-api",
+    "run-graphql-api": "vue-cli-service run-graphql-api"
   },
   "main": "./bin/www",
   "standard-version": {
