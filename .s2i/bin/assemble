@@ -49,11 +49,9 @@ else
 	if [ "$DEV_MODE" == true ]; then
 		echo "---> Using 'npm install'"
 		npm install
-		npm run build 
 	else
 		echo "---> Using 'npm install -s --only=production'"
 		npm install -s --only=production
-		npm run build 
 	fi
 fi
 
