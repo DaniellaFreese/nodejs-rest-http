@@ -48,7 +48,8 @@ else
 	echo "---> Installing dependencies"
 	if [ "$DEV_MODE" == true ]; then
 		echo "---> Using 'npm install'"
-		echo "testing that the script functions" 
+		echo "testing that the script functions"
+	        echo "in openshift branch"	
 		npm install
 		
 	else
